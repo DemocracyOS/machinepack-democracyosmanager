@@ -2,8 +2,8 @@ var request = require('superagent');
 var urljoin = require('url-join');
 
 module.exports = {
-  friendlyName: 'Delete Instance.',
-  description: 'Delete a DemocracyOS Instance.',
+  friendlyName: 'Delete Deployment.',
+  description: 'Delete a DemocracyOS Deployment.',
   extendedDescription: '',
 
   inputs: {
@@ -40,13 +40,13 @@ module.exports = {
     },
 
     success: {
-      description: 'Instance succesfully deleted.'
+      description: 'Deployment succesfully deleted.'
     },
   },
 
   fn: function (inputs, exits) {
     request
-      .del(urljoin(inputs.url, 'instances', inputs.name))
+      .del(urljoin(inputs.url, 'deployments', inputs.name))
       .send({
         access_token: inputs.access_token
       })

@@ -2,8 +2,8 @@ var request = require('superagent');
 var urljoin = require('url-join');
 
 module.exports = {
-  friendlyName: 'Create Instance',
-  description: 'Create a DemocracyOS instance for a given user.',
+  friendlyName: 'Create Deployment',
+  description: 'Create a DemocracyOS deployment for a given user.',
   extendedDescription: '',
 
   inputs: {
@@ -18,12 +18,12 @@ module.exports = {
       required: true
     },
     name: {
-      description: 'Instance name.',
+      description: 'Deployment name.',
       example: 'mars-democracy',
       required: true
     },
     title: {
-      description: 'Instance Title.',
+      description: 'Deployment Title.',
       example: 'Mars Democracy',
       required: true
     },
@@ -33,7 +33,7 @@ module.exports = {
       required: true
     },
     summary: {
-      description: 'Instance long description.',
+      description: 'Deployment long description.',
       example: 'Mars Democracy'
     }
   },
@@ -54,9 +54,9 @@ module.exports = {
     },
 
     success: {
-      description: 'Instance succesfully created.',
+      description: 'Deployment succesfully created.',
       example: {
-        instance: {
+        deployment: {
           _id: '54f85ac65ebf6b6e180cf287',
           url: 'mars-democracy.democracyos.com',
           deis_uuid: 'bc612942-4f4e-4c2a-900b-7e6340bd91a9',
@@ -76,12 +76,12 @@ module.exports = {
 
   fn: function (inputs, exits) {
     request
-      .post(urljoin(inputs.url, '/instances'))
+      .post(urljoin(inputs.url, 'deployments'))
       .type('application/json')
       .accept('application/json')
       .send({
         access_token: inputs.access_token,
-        instance: {
+        deployment: {
           name: inputs.name,
           title: inputs.title,
           owner: inputs.owner,

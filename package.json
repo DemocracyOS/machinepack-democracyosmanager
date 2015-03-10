@@ -1,7 +1,7 @@
 {
   "name": "machinepack-democracyosmanager",
-  "version": "0.1.0",
-  "description": "Communicate with a DemocracyOS Manager API to manage Instances.",
+  "version": "0.2.0",
+  "description": "Communicate with a DemocracyOS Manager API to manage Deployments.",
   "scripts": {
     "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
   },
@@ -25,8 +25,8 @@
     "friendlyName": "DemocracyOS Manager",
     "machineDir": "machines/",
     "machines": [
-      "create-instance",
-      "delete-instance"
+      "create-deployment",
+      "delete-deployment"
     ]
   }
 }
